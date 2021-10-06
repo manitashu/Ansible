@@ -1,0 +1,13 @@
+- name: Sample play 1
+  hosts: all
+  tasks:
+      - name: Print Hello
+        ansible.builtin.debug:
+          msg: Hello
+
+- name: Sample play 2
+  hosts: all
+  tasks:
+      - name: Print Bye
+        ansible.builtin.debug:
+          msg: Bye
