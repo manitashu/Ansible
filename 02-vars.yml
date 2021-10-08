@@ -9,6 +9,6 @@
     - name: Print task variable
       debug:
         msg: "URL = {{URL}}"
-     vars:
-            URL: task.goggle.com
+      vars:
+        URL: task.goggle.com
 ## when there is variable reference (calling variable), double quote it
