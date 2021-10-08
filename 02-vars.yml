@@ -38,3 +38,14 @@
     - name: Print a fact var
       ansible.builtin.debug:
         msg: "Hostname = {{ansible_fqdn}}"
+
+- name: Demo on register variables
+  hosts: all
+  tasks:
+    - name: Run uptime command
+      ansible.builtin.shell: uptime
+      register: out
+
+    - name: Print output
+      ansible.builtin.debug:
+      msg: "{{out}}"
