@@ -4,7 +4,7 @@
     URL: goggle.com
   tasks:
     - name: Print a variable
-        debug:
-          msg: "URL = {{URL}}"
+      debug:
+        msg: "URL = {{URL}}"
 
 ## when there is variable reference (calling variable), double quote it
