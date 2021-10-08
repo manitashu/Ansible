@@ -19,8 +19,6 @@
     - name: Print a Inv variable
       ansible.builtin.debug:
         msg: "URL = {{URL}}"
-      vars:
-        URL: inv.goggle.com
 
 - name: Demo on File variables
   hosts: all
