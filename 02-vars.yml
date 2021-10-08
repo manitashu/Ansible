@@ -21,3 +21,12 @@
         msg: "URL = {{URL}}"
       vars:
         URL: inv.goggle.com
+
+- name: Demo on File variables
+  hosts: all
+  vars_file:
+    - vars.yml
+  tasks:
+    - name: Print a variable
+      ansible.builtin.debug:
+        msg: "URL = {{URL}}"
