@@ -16,6 +16,6 @@
 - name: Demo on Inv variables
   hosts: all
   tasks:
-    - name: Print a variable
+    - name: Print a Inv variable
       ansible.builtin.debug:
         msg: "URL = {{URL}}"
