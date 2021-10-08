@@ -1,10 +1,14 @@
 - name: Demo on variables
   hosts: all
   vars:
-    URL: goggle.com
+    URL: play.goggle.com
   tasks:
     - name: Print a variable
       debug:
         msg: "URL = {{URL}}"
-
+    - name: Print task variable
+      debug:
+        msg: "URL = {{URL}}"
+     vars:
+            URL: task.goggle.com
 ## when there is variable reference (calling variable), double quote it
