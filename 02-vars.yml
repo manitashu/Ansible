@@ -12,3 +12,10 @@
       vars:
         URL: task.goggle.com
 ## when there is variable reference (calling variable), double quote it
+
+- name: Demo on Inv variables
+  hosts: all
+  tasks:
+    - name: Print a variable
+      ansible.builtin.debug:
+        msg: "URL = {{URL}}"
