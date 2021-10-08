@@ -4,10 +4,10 @@
     URL: play.goggle.com
   tasks:
     - name: Print a variable
-      debug:
+      ansible.builtin.debug:
         msg: "URL = {{URL}}"
     - name: Print task variable
-      debug:
+      ansible.builtin.debug:
         msg: "URL = {{URL}}"
       vars:
         URL: task.goggle.com
