@@ -8,6 +8,7 @@
 
 - name: Install a package
   hosts: all
+  become: yes
   tasks:
     - name: Install nodejs
       ansible.builtin.yum:
