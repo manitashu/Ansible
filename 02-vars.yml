@@ -53,3 +53,5 @@
     - name: Print output
       ansible.builtin.debug:
         msg: "{{UPTIME}}"
+
+
