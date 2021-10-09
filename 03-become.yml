@@ -2,6 +2,6 @@
   hosts: all
   tasks:
     - name: Install nginx
-      ansible.bulitin.yum:
+      ansible.builtin.yum:
         name: nginx
         state: present
