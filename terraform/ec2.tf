@@ -31,3 +31,8 @@ resource "aws_route53_record" "records" {
 locals {
   LENGTH = length(var.COMPONENTS)
 }
+
+resource "local_file" "foo" {
+  content = "[FRONTEND]\n${aws_spot_instance_request.RoboShop.*.private_ip[9]}"
+  filename = "/tmp/inv-roboshop"
+}
