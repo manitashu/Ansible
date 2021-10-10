@@ -33,6 +33,6 @@ locals {
 }
 
 resource "local_file" "foo" {
-  content = "[FRONTEND]\n${aws_spot_instance_request.RoboShop.*.private_ip[9]}"
+  content = "[FRONTEND]\n${aws_spot_instance_request.RoboShop.*.private_ip[10]}"
   filename = "/tmp/inv-roboshop"
 }
