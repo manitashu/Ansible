@@ -30,7 +30,7 @@
     src: roboshop.conf
     dest: /etc/nginx/default.d/roboshop.conf
 
-- name: Restart nginx Service
+- name: Restart nginx service
   systemd:
     - name: nginx
       state: restarted
