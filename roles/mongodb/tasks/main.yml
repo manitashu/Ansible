@@ -16,7 +16,7 @@
 
 - name: Start MongoDB service
   systemd:
-    name: mongodb
+    name: mongod
     state: started
 
 - name: Download and Extract MongoDB Schema
