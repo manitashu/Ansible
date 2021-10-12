@@ -3,7 +3,7 @@
     name: [ "nodejs", "make", "gcc-c++" ]
     state: present
 
-- name: Add Roboshop Application User
+- name: Add Roboshop Application user
   ansible.builtin.user:
     name: roboshop
 
