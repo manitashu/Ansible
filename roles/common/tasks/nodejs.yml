@@ -19,10 +19,12 @@
     owner: roboshop
     group: roboshop
 
-#$ cd /home/roboshop
-#$ unzip /tmp/catalogue.zip
-#$ mv catalogue-main catalogue
-#$ cd /home/roboshop/catalogue
+- name: Install catalogue dependencies
+  community.general.npm:
+    path: home/roboshop/catalogue
+    state: latest
+  become_user: roboshop
+
 #$ npm install
 #NOTE: We need to update the IP address of MONGODB Server in systemd.service file. Replace MONGO_DNSNAME with IP address.
 #Now, lets set up the service with systemctl.
