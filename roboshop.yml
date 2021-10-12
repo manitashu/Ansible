@@ -9,3 +9,9 @@
   become: yes
   roles:
     - name: mongodb
+
+- name: Roboshop Catalogue Setup
+  hosts: CATALOGUE
+  become: yes
+  roles:
+    - name: catalogue
