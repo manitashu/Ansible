@@ -14,3 +14,21 @@
       tags:
         - centos
         - redhat
+
+- name: Ubuntu tags
+  hosts: localhost
+  tags:
+    - ubuntu
+  tasks:
+    - name: Ubuntu task
+      debug:
+        msg: Ubuntu task
+
+- name: CentOS tags
+  hosts: localhost
+  tags:
+    - centos
+  tasks:
+    - name: CentOS task
+      debug:
+        msg: CentOS task
