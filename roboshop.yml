@@ -21,3 +21,9 @@
   become: yes
   roles:
     - name: redis
+
+- name: Roboshop User Setup
+  hosts: USER
+  become: yes
+  roles:
+    - name: user

@@ -13,26 +13,26 @@
 
 - name: Copy the Extracted Content
   copy:
-    src: /tmp/catalogue-main/
-    dest: /home/roboshop/catalogue/
+    src: /tmp/{{COMPONENT}}-main/
+    dest: /home/roboshop/{{COMPONENT}}/
     remote_src: yes
     owner: roboshop
     group: roboshop
 
-- name: Install catalogue dependencies
+- name: Install {{COMPONENT}} dependencies
   community.general.npm:
-    path: home/roboshop/catalogue/
+    path: home/roboshop/{{COMPONENT}}/
     state: latest
   become_user: roboshop
 
 - name: Update SystemD Configuration
   copy:
     src: systemd.service
-    dest: /etc/systemd/system/catalogue.service
+    dest: /etc/systemd/system/{{COMPONENT}}.service
 
-- name: Restart Catalogue Service
+- name: Restart {{COMPONENT}} Service
   systemd:
-    name: catalogue
+    name: {{COMPONENT}}
     state: restarted
     enabled: yes
     daemon_reload: yes
