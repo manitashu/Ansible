@@ -1,29 +1,34 @@
 - name: Roboshop Frontend Setup
   hosts: FRONTEND
   become: yes
+  tags: frontend
   roles:
     - name: frontend
 
 - name: Roboshop Mongodb Setup
   hosts: MONGODB
   become: yes
+  tags: mongodb
   roles:
     - name: mongodb
 
 - name: Roboshop Catalogue Setup
   hosts: CATALOGUE
   become: yes
+  tags: catalogue
   roles:
     - name: catalogue
 
 - name: Roboshop Redis Setup
   hosts: REDIS
   become: yes
+  tags: redis
   roles:
     - name: redis
 
 - name: Roboshop User Setup
   hosts: USER
   become: yes
+  tags: user
   roles:
     - name: user
