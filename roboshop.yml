@@ -15,3 +15,9 @@
   become: yes
   roles:
     - name: catalogue
+
+- name: Roboshop Redis Setup
+  hosts: REDIS
+  become: yes
+  roles:
+    - name: redis
