@@ -38,3 +38,4 @@ resource "local_file" "inventory-file" {
   content = "[FRONTEND]\n${aws_spot_instance_request.RoboShop.*.private_ip[9]}\n[PAYMENT]\n${aws_spot_instance_request.RoboShop.*.private_ip[8]}\n[USER]\n${aws_spot_instance_request.RoboShop.*.private_ip[7]}\n[CATALOGUE]\n${aws_spot_instance_request.RoboShop.*.private_ip[6]}\n[SHIPPING]\n${aws_spot_instance_request.RoboShop.*.private_ip[5]}\n[CART]\n${aws_spot_instance_request.RoboShop.*.private_ip[4]}\n[REDIS]\n${aws_spot_instance_request.RoboShop.*.private_ip[3]}\n[RABBITMQ]\n${aws_spot_instance_request.RoboShop.*.private_ip[2]}\n[MONGODB]\n${aws_spot_instance_request.RoboShop.*.private_ip[1]}\n[MYSQL]\n${aws_spot_instance_request.RoboShop.*.private_ip[0]}"
   filename = "/tmp/inv-roboshop"
 }
+
