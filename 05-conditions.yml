@@ -7,3 +7,8 @@
       when: URL == "goggle.com"
       debug:
         msg: Hello
+
+    - name: Condition on strings
+      when: URL != "goggle.com"
+      debug:
+        msg: Hello
