@@ -22,7 +22,7 @@
 - name: Start RabbitMQ
   yum:
    name: rabbitmq-server
-   state: installed
+   state: started
    enabled: yes
 
 - name: Create App User in Roboshop
