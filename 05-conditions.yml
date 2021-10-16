@@ -36,7 +36,7 @@
         msg: Hello
 
     - name: Run if variable B is declared
-      when: B is declared
+      when: B is defined
       debug:
         msg: Hello
 
