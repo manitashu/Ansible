@@ -17,7 +17,7 @@
 - name: Check the default password
   community.mysql.mysql_query:
     query: show databases
-    login_password: Roboshop@1
+    login_password: RoboShop@1
     login_user: root
   register: default_mysql_check
   ignore_errors: yes
