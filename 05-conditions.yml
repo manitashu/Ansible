@@ -34,3 +34,10 @@
       when: not ACTION
       debug:
         msg: Hello
+
+    - name: Run if variable B is declared
+      when: B is declared
+      debug:
+        msg: Hello
+
+
