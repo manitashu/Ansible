@@ -3,7 +3,7 @@
     name: [ "nodejs", "make", "gcc-c++" ]
     state: present
 
-- name: Download Github
+- name: Download App Code & Add App User
   include_tasks:
     file: download.yml
 
@@ -13,14 +13,6 @@
     state: latest
   become_user: roboshop
 
-- name: Update SystemD Configuration
-  copy:
-    src: systemd.service
-    dest: /etc/systemd/system/{{COMPONENT}}.service
-
-- name: Restart {{COMPONENT}} Service
-  systemd:
-    name: "{{COMPONENT}}"
-    state: restarted
-    enabled: yes
-    daemon_reload: yes
+- name: Setup SystemD
+  include_tasks:
+    file: setup-systemd
