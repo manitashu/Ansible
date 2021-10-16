@@ -19,6 +19,6 @@
         msg: Hello
 
     - name: Condition on Numbers
-      when: a != 10
+      when: a <= 10
       debug:
         msg: Hello
