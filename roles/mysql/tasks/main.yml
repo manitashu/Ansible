@@ -22,10 +22,10 @@
   register: default_mysql_check
   ignore_errors: yes
 
-- name: Check the default password
-  shell: echo "show databases;" | mysql -uroot -pRoboShop@1
-  register: default_mysql_check
-  ignore_errors: yes
+#- name: Check the default password
+#  shell: echo "show databases;" | mysql -uroot -pRoboShop@1
+#  register: default_mysql_check
+#  ignore_errors: yes
 
 - name: pringt
   debug:
