@@ -23,3 +23,13 @@
       when: a <= 10
       debug:
         msg: Hi
+
+    - name: Run if actions is true
+      when: ACTION
+      debug:
+        msg: Hello
+
+    - name: Run if actions is not true
+      when: not ACTION
+      debug:
+        msg: Hello
