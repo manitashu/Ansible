@@ -24,8 +24,11 @@
     msg: "{{default_mysql_check}}"
 
 - name: Grab default password
+  when: default_mysql_check
   shell: grep 'A temporary password' /var/log/mysqld.log | awk '{print $NF}'
   register: out
+
+
 
 #Now a default root password will be generated and given in the log file.
 ## grep temp /var/log/mysqld.log
