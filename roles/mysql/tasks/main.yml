@@ -27,10 +27,6 @@
 #  register: default_mysql_check
 #  ignore_errors: yes
 
-#- name: pringt
-#  debug:
-#    msg: "{{default_mysql_check}}"
-
 - name: Grab default password
   when: default_mysql_check.failed
   shell: grep 'A temporary password' /var/log/mysqld.log | awk '{print $NF}'
