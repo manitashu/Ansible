@@ -3,21 +3,9 @@
     name: [ "nodejs", "make", "gcc-c++" ]
     state: present
 
-- name: Add Roboshop Application user
-  ansible.builtin.user:
-    name: roboshop
-
 - name: Download Github
   include_tasks:
     file: download.yml
-
-- name: Copy the Extracted Content
-  copy:
-    src: /tmp/{{COMPONENT}}-main/
-    dest: /home/roboshop/{{COMPONENT}}/
-    remote_src: yes
-    owner: roboshop
-    group: roboshop
 
 - name: Install {{COMPONENT}} dependencies
   community.general.npm:
