@@ -15,6 +15,14 @@
     enabled: yes
 
 - name: Check the default password
+  community.mysql.mysql_query:
+    query: show databases
+    login_password: Roboshop@1
+    login_user: root
+  register: default_mysql_check
+  ignore_errors: yes
+
+- name: Check the default password
   shell: echo "show databases;" | mysql -uroot -pRoboShop@1
   register: default_mysql_check
   ignore_errors: yes
@@ -27,8 +35,6 @@
   when: default_mysql_check.failed
   shell: grep 'A temporary password' /var/log/mysqld.log | awk '{print $NF}'
   register: out
-
-
 
 #Now a default root password will be generated and given in the log file.
 ## grep temp /var/log/mysqld.log
