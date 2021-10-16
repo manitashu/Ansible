@@ -27,9 +27,9 @@
 #  register: default_mysql_check
 #  ignore_errors: yes
 
-- name: pringt
-  debug:
-    msg: "{{default_mysql_check}}"
+#- name: pringt
+#  debug:
+#    msg: "{{default_mysql_check}}"
 
 - name: Grab default password
   when: default_mysql_check.failed
@@ -38,6 +38,7 @@
 
 - name: Reset MySQL Password
   shell: echo "ALTER USER 'root'@'localhost' IDENTIFIED BY 'RoboShop@1';" | mysql --connect-expired-password -uroot -p${{out.stdout}}
+
 
 #Run the following SQL commands to remove the password policy.
 #> uninstall plugin validate_password;
