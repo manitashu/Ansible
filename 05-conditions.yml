@@ -3,6 +3,7 @@
   vars:
     URL: goggle.com
     a: 10
+    ACTION: false
   tasks:
     - name: Condition on strings
       when: URL == "goggle.com"
