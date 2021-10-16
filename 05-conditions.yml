@@ -2,6 +2,7 @@
   hosts: localhost
   vars:
     URL: goggle.com
+    a: 10
   tasks:
     - name: Condition on strings
       when: URL == "goggle.com"
