@@ -16,9 +16,9 @@
     - name: Condition on Numbers
       when: a == 10
       debug:
-        msg: Hello
+        msg: Hi
 
     - name: Condition on Numbers
       when: a <= 10
       debug:
-        msg: Hello
+        msg: Hi
