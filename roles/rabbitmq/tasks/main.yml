@@ -20,7 +20,7 @@
    state: present
 
 - name: Start RabbitMQ
-  yum:
+  systemd:
    name: rabbitmq-server
    state: started
    enabled: yes
