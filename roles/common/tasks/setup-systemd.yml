@@ -2,7 +2,6 @@
   copy:
     src: systemd.service
     dest: /etc/systemd/system/{{COMPONENT}}.service
-  notify: Restart Service - Handler
 
 - name: Restart {{COMPONENT}} Service
   systemd:
