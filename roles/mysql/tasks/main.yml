@@ -29,12 +29,12 @@
 
 - name: Grab default password
   when: default_mysql_check.failed
-  shell: grep 'A temporary password' /var/log/mysqld.log | awk '{print $NF}'
+  shell: grep 'A temporary password' /var/log/mysqld.log  | awk '{print $NF}'
   register: out
 
 - name: Reset MySQL Password
   when: default_mysql_check.failed
-  shell: echo "ALTER USER 'root'@'localhost' IDENTIFIED BY 'RoboShop@1';" | mysql --connect-expired-password -uroot -p${{out.stdout}}
+  shell: echo "ALTER USER 'root'@'localhost' IDENTIFIED BY 'RoboShop@1';" | mysql --connect-expired-password -uroot -p"{{out.stdout}}"
 
 - name: Uninstall Validate Password Plugin
   community.mysql.mysql_query:
@@ -55,3 +55,4 @@
     target: /tmp/mysql-main/shipping.sql
     login_user: root
     login_password: RoboShop@1
+
