@@ -1,2 +1,9 @@
+- name: Copy Hostname Script
+  copy:
+    src: set-hostname.sh
+    dest: /bin/set-hostname
+    mode: 0755
+    # u-rwx g-rx 0-rx
+
 - name: Setup HostName
   shell: set-hostname {{COMPONENT}}
