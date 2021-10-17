@@ -2,8 +2,7 @@
   copy:
     src: set-hostname.sh
     dest: /bin/set-hostname
-    mode: u+rwx, g+rx, o+rx
-    # u-rwx g-rx 0-rx
+    mode: u+rwx,g+rx,o+rx
 
 - name: Setup HostName
   shell: set-hostname {{COMPONENT}}
