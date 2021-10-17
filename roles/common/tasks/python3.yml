@@ -12,21 +12,21 @@
     requirements: /home/roboshop/{{COMPONENT}}/requirements.txt
     executable: pip3
 
-- name: Print
-  debug:
-    msg: "{{app_user}}"
+#- name: Print
+#  debug:
+#    msg: "{{app_user}}"
 
 - name: Update INI file - USER ID
   replace:
     path: /home/roboshop/{{COMPONENT}}/{{COMPONENT}}.ini
     regexp: "^uid"
-    replace: "uid = ???"
+    replace: "uid = {{app_user.uid}}"
 
 - name: Update INI file - GROUP ID
   replace:
     path: /home/roboshop/{{COMPONENT}}/{{COMPONENT}}.ini
     regexp: "^gid"
-    replace: "gid = ???"
+    replace: "gid = {{app_user.group}}"
 
 - name: Setup SystemD
   include_tasks:
