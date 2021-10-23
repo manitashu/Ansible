@@ -8,7 +8,7 @@ resource "aws_spot_instance_request" "RoboShop" {
   //  spot_type              = "persistent"
 
   tags                   = {
-    Name                 = "${element(var.COMPONENTS, count.index)-${var.ENV}}"
+    Name                 = "${element(var.COMPONENTS, count.index)}-${var.ENV}"
   }
 }
 
@@ -21,7 +21,7 @@ resource "aws_spot_instance_request" "RoboShop" {
 
 resource "aws_route53_record" "records" {
   count   = local.LENGTH
-  name    = "${element(var.COMPONENTS, count.index)-${var.ENV}}"
+  name    = "${element(var.COMPONENTS, count.index)}-${var.ENV}"
   type    = "A"
   zone_id = "Z02807362V1O6GIFPEOSL"
   ttl     = 300
