@@ -4,18 +4,18 @@ help:		## Print Help Message
 clean:
 	@rm -rf .terraform*
 
-dev-apply:	clean ## Create Infra for Dev env
+dev-apply:	clean ## Create Infra for DEV ENV
 	@terraform init -backend-config=env/dev-backend.tfvars -no-color
 	@terraform apply -auto-approve -var-file=env/dev.tfvars -no-color
 
-prod-apply:	clean ## Create Infra for Prod env
+prod-apply:	clean ## Create Infra for PROD ENV
 	@terraform init -backend-config=env/prod-backend.tfvars -no-color
 	@terraform apply -auto-approve -var-file=env/prod.tfvars -no-color
 
-dev-destroy:	clean ## Destroy Infra for Dev env
+dev-destroy:	clean ## Destroy Infra for DEV ENV
 	@terraform init -backend-config=env/dev-backend.tfvars -no-color
 	@terraform destroy -auto-approve -var-file=env/dev.tfvars -no-color
 
-prod-destroy:	clean ## Destroy Infra for Prod env
+prod-destroy:	clean ## Destroy Infra for PROD ENV
 	@terraform init -backend-config=env/prod-backend.tfvars -no-color
 	@terraform destroy -auto-approve -var-file=env/prod.tfvars -no-color
