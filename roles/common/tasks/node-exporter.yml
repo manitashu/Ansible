@@ -1,5 +1,5 @@
 - name: check node exporter does exist
-  state:
+  stat:
     path: /opt/node_exporter
   register: out
 
