@@ -1,5 +1,6 @@
-resource "aws_spot_app-instances_request" "RoboShop" {
-  count                  = local.LENGTH
+
+resource "aws_instance" "app-instances" {
+  count                  = var.APP_COMPONENTS
   ami                    = "ami-0e4e4b2f188e91845"
   spot_price             = "0.0031"
   instance_type          = "t3.micro"
@@ -8,7 +9,21 @@ resource "aws_spot_app-instances_request" "RoboShop" {
   //  spot_type              = "persistent"
 
   tags                   = {
-    Name                 = "${element(var.COMPONENTS, count.index)}-${var.ENV}"
+    Name                 = "${element(var.APP_COMPONENTS, count.index)}-${var.ENV}"
+  }
+}
+
+resource "aws_instance" "db-instances" {
+  count                  = var.DB_COMPONENTS
+  ami                    = "ami-0e4e4b2f188e91845"
+  spot_price             = "0.0031"
+  instance_type          = "t3.micro"
+  vpc_security_group_ids = ["sg-0342f3ac50a4bc8c6"]
+  wait_for_fulfillment   = true
+  //  spot_type              = "persistent"
+
+  tags                   = {
+    Name                 = "${element(var.DB_COMPONENTS, count.index)}-${var.ENV}"
   }
 }
 
@@ -20,16 +35,12 @@ resource "aws_spot_app-instances_request" "RoboShop" {
 #}
 
 resource "aws_route53_record" "records" {
-  count   = local.LENGTH
-  name    = "${element(var.COMPONENTS, count.index)}-${var.ENV}"
+  count   = var.APP_COMPONENTS
+  name    = "${element(var.APP_COMPONENTS, count.index)}-${var.ENV}"
   type    = "A"
   zone_id = "Z02807362V1O6GIFPEOSL"
   ttl     = 300
   records = [element(aws_spot_instance_request.RoboShop.*.private_ip, count.index)]
-}
-
-locals {
-  LENGTH = length(var.COMPONENTS)
 }
 
 //COMPONENTS = ["mysql","mongodb","rabbitmq","redis","cart","shipping","catalogue","user","payment","frontend"]
