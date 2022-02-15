@@ -1,4 +1,4 @@
-resource "aws_spot_instance_request" "RoboShop" {
+resource "aws_spot_app-instances_request" "RoboShop" {
   count                  = local.LENGTH
   ami                    = "ami-0e4e4b2f188e91845"
   spot_price             = "0.0031"
