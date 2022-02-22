@@ -43,4 +43,4 @@
 - name: Install Node Exporter
   include_role:
     name: common
-    tasks_from: node_exporter.yml
+    tasks_from: node-exporter
