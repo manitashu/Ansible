@@ -1,4 +1,4 @@
-bucket = "terraform-b57-m1"
+bucket = "terraform-b57-m2"
 key    = "roboshop/ansible/dev/terraform.tfstate"
 region = "us-east-1"
 dynamodb_table = "terraform"
