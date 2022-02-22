@@ -59,9 +59,21 @@ resource "aws_route53_record" "db-records" {
 #  content = "[FRONTEND]\n${aws_spot_instance_request.RoboShop.*.private_ip[9]}\n[PAYMENT]\n${aws_spot_instance_request.RoboShop.*.private_ip[8]}\n[USER]\n${aws_spot_instance_request.RoboShop.*.private_ip[7]}\n[CATALOGUE]\n${aws_spot_instance_request.RoboShop.*.private_ip[6]}\n[SHIPPING]\n${aws_spot_instance_request.RoboShop.*.private_ip[5]}\n[CART]\n${aws_spot_instance_request.RoboShop.*.private_ip[4]}\n[REDIS]\n${aws_spot_instance_request.RoboShop.*.private_ip[3]}\n[RABBITMQ]\n${aws_spot_instance_request.RoboShop.*.private_ip[2]}\n[MONGODB]\n${aws_spot_instance_request.RoboShop.*.private_ip[1]}\n[MYSQL]\n${aws_spot_instance_request.RoboShop.*.private_ip[0]}"
 #  filename = "/tmp/inv-roboshop-${var.ENV}"
 #}
+locals {
+  COMPONENTS = concat(var.APP_COMPONENTS, var.DB_COMPONENTS)
+}
 
 resource "local_file" "inventory-file" {
-  content = "[FRONTEND]\n${aws_instance.app-instances.*.private_ip[5]}\n[PAYMENT]\n${aws_instance.app-instances.*.private_ip[4]}\n[USER]\n${aws_instance.app-instances.*.private_ip[3]}\n[CATALOGUE]\n${aws_instance.app-instances.*.private_ip[2]}\n[SHIPPING]\n${aws_instance.app-instances.*.private_ip[1]}\n[CART]\n${aws_instance.app-instances.*.private_ip[0]}\n[REDIS]\n${aws_instance.db-instances.*.private_ip[3]}\n[RABBITMQ]\n${aws_instance.db-instances.*.private_ip[2]}\n[MONGODB]\n${aws_instance.db-instances.*.private_ip[1]}\n[MYSQL]\n${aws_instance.db-instances.*.private_ip[0]}"
+  content = "[FRONTEND]\n${local.COMPONENTS[9]}\n[PAYMENT]\n${local.COMPONENTS[8]}\n[USER]\n${local.COMPONENTS[7]}\n[CATALOGUE]\n${local.COMPONENTS[6]}\n[SHIPPING]\n${local.COMPONENTS[5]}\n[CART]\n${local.COMPONENTS[4]}\n[REDIS]\n${local.COMPONENTS[3]}\n[RABBITMQ]\n${local.COMPONENTS[2]}\n[MONGODB]\n${local.COMPONENTS[1]}\n[MYSQL]\n${local.COMPONENTS[0]}"
   filename = "/tmp/inv-roboshop-${var.ENV}"
 }
+
+// to avoid do manually changes, we can use concat function and combine both lists
+
+#resource "local_file" "inventory-file" {
+#  content = "[FRONTEND]\n${aws_instance.app-instances.*.private_ip[5]}\n[PAYMENT]\n${aws_instance.app-instances.*.private_ip[4]}\n[USER]\n${aws_instance.app-instances.*.private_ip[3]}\n[CATALOGUE]\n${aws_instance.app-instances.*.private_ip[2]}\n[SHIPPING]\n${aws_instance.app-instances.*.private_ip[1]}\n[CART]\n${aws_instance.app-instances.*.private_ip[0]}\n[REDIS]\n${aws_instance.db-instances.*.private_ip[3]}\n[RABBITMQ]\n${aws_instance.db-instances.*.private_ip[2]}\n[MONGODB]\n${aws_instance.db-instances.*.private_ip[1]}\n[MYSQL]\n${aws_instance.db-instances.*.private_ip[0]}"
+#  filename = "/tmp/inv-roboshop-${var.ENV}"
+#}
+
+
 
